@@ -1,4 +1,5 @@
 const os = require('os')
+const log = require('./logger')
 setInterval(() =>{
   const {freemem, totalmem} = os
 
@@ -11,7 +12,9 @@ setInterval(() =>{
     total:`${total} MB`,
     usage: `${percents} %`
   }
-  
+  console.clear()
   console.log("== PC Memory ==")
   console.table(states)
+  log(`${JSON.stringify(states)}\n`)
+
 }, 1000)
